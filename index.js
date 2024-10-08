@@ -10,7 +10,7 @@ function mostrarComponentes() {
 }
 
 const aplicarDescuento = (valor, descuento) =>{
-  const precioConDescuento = valor - (valor/descuento );
+  const precioConDescuento = valor - (valor*descuento) /50;
   return precioConDescuento;
 }
 
@@ -68,22 +68,36 @@ function comprarComponentes() {
 
     
 
-  }if(elegir = "no" || ""){
+  }while(comprar = "no" || ""){
 
-  
-    let descuento = parseFloat(prompt("Por favor ingresa el monto de descuento con un maximo del 50%"));
+    
+    
+    let descuento = parseInt(prompt("Por favor ingresa el monto de descuento con un maximo del 30%"));
+    
+    const precioFinal = aplicarDescuento (valor, descuento) ;
       
-  
-      const precioFinal = aplicarDescuento (valor, descuento) ;
-
-      alert(`El total de tu presupuesto con descuento seria ${precioFinal} $`);
-  
+    
       
+      
+    if(descuento == "" || descuento == null || descuento >30 )
+    
+    {
+      alert("ingresa un dato valido")
+      continue;
     }
+    
+    if(!isNaN(descuento) ){
 
-}
+    alert(`El total de tu presupuesto con descuento seria ${precioFinal} $`);
+    break;
+    }
+  
+  }
+    
+  
+    
 
-
-
+  }
+  
 
 comprarComponentes();
