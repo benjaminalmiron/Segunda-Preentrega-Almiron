@@ -97,7 +97,7 @@ function comprarComponentes() {
     }
 
     
-    comprar = prompt(" Si queres agregar mas productos coloque \n `SI` de lo contrario no para finalizar") === "si";
+    comprar = prompt(" Si queres agregar mas componentes coloque \n `SI` de lo contrario no para finalizar") === "si";
 
 
     
@@ -137,7 +137,7 @@ function comprarComponentes() {
   const nombreComponente = () => {
     let idcomponente = prompt("Ingresa el identificador del componente")
     let nombreComponente1 = prompt("Ingresa nombre del componente a elegir");
-    let precioComponente = parseInt(prompt("Ingresa el precio del producto"));
+    let precioComponente = parseInt(prompt("Ingresa el precio del componente"));
     let StockComponente = parseInt(prompt("Ingresa stock del componente"));
     
 
@@ -165,22 +165,22 @@ function comprarComponentes() {
         console.log(componente.precio)
       })
     }else{
-      console.log(`No se encontro productos menores de ${precioMaximo}`)
+      console.log(`No se encontro componentes menores de ${precioMaximo}`)
     }
     
     
   } 
  
-  const eliminarComponente = (id) =>{
-   const catalogo = componentes.findIndex((componente)=>componente.nombre.toLowerCase() ===id);
+  const eliminarComponente = (nombre) =>{
+   const catalogo = componentes.findIndex((componente)=>componente.nombre.toLowerCase() === nombre);
     
     if(catalogo !==-1){
       componentes.splice(catalogo, 1 )
-      alert(`Componente ${id} eliminado con exito`);
+      alert(`Componente ${nombre} eliminado con exito`);
       mostrarComponentes();
 
     }else{
-      alert(`Componente ${id} no encontrado`)
+      alert(`Componente ${nombre} no encontrado`)
     }
   }
   
@@ -191,7 +191,7 @@ function comprarComponentes() {
       let elegir = "";
       
       while(elegir !== "Salir" || elegir=== "6" ){
-          elegir = prompt("Calcular Presupuesto \n1. Comprar Componentes \n2. Ver Componentes \n3. Agregar componentes nuevos  \n4. Filtrar productos por precio \n5. Eliminar componente \n6. Salir");
+          elegir = prompt("Calcular Presupuesto \n1. Comprar Componentes \n2. Ver Componentes \n3. Agregar componentes nuevos  \n4. Filtrar componentes por precio \n5. Eliminar componente \n6. Salir");
       
         
           
@@ -217,14 +217,14 @@ function comprarComponentes() {
 
         
         if(elegir === "4"){
-          const precioMaximo = parseFloat(prompt("Ingresa un precio para filtrar productos"));
+          const precioMaximo = parseFloat(prompt("Ingresa un precio para filtrar componentes"));
           filtrarPrecio(precioMaximo);
           
         }
       
 
         if(elegir === "5"){
-          const  hola = prompt("Ingresa el ID del producto a eliminar")
+          const  hola = prompt("Ingresa el nombre del componente a eliminar")
           eliminarComponente(hola)
         }
 
